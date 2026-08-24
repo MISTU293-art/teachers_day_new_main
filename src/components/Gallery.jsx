@@ -61,7 +61,7 @@ export default function Gallery() {
   const fetchGallery = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:3000/api/gallery');
+      const res = await fetch('https://teachers-day-backend.onrender.com/api/gallery');
       if (res.ok) {
         const data = await res.json();
         if (data.success && data.data && data.data.length > 0) {
