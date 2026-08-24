@@ -129,7 +129,7 @@ export default function Navbar() {
                   Register to Perform
                 </a>
                 <a
-                  href="http://localhost:3000/auth/login"
+                  href="https://teachers-day-backend.onrender.com/auth/login"
                   target="_blank"
                   rel="noreferrer"
                   className="w-full text-center py-2.5 rounded-xl text-xs font-semibold text-slate-300 bg-slate-800 border border-slate-700"
