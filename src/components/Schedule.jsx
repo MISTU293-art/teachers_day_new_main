@@ -1,59 +1,89 @@
 import React from 'react';
-import { Clock, MapPin, Sparkles, Coffee, Gift, Music2, Cake, Mic } from 'lucide-react';
+import { Clock, MapPin, Sparkles } from 'lucide-react';
 
 export default function Schedule() {
-
   return (
     <section id="schedule" className="py-24 relative bg-[#060913]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-mono mb-4">
             <Clock className="w-3.5 h-3.5" />
-            <span>EVENT TIMELINE • 3RD SEPTEMBER 2026</span>
+            <span>PROGRAM SCHEDULE • 3RD SEPTEMBER 2026</span>
           </div>
+
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-            Program <span className="gradient-text">Itinerary</span>
+            Program <span className="gradient-text">Schedule</span>
           </h2>
+
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-            A thoughtfully curated full-day schedule designed to honor, entertain, and celebrate our professors.
+            The complete program schedule and event details will be announced soon.
           </p>
         </div>
 
-        {/* Timeline Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {events.map((ev, idx) => (
-            <div
-              key={idx}
-              className="glass-panel rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/40 transition-all hover:-translate-y-1 relative overflow-hidden group flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-xs font-semibold">
-                    <Clock className="w-3.5 h-3.5" />
-                    {ev.time}
-                  </div>
-                  <span className="text-[11px] font-mono text-slate-400 px-2 py-0.5 rounded bg-slate-800">
-                    {ev.tag}
-                  </span>
-                </div>
+        {/* Announcement Card */}
+        <div className="glass-panel rounded-3xl border border-indigo-500/20 p-8 sm:p-12 text-center relative overflow-hidden">
 
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-indigo-400 shrink-0 group-hover:scale-110 transition-transform">
-                    <ev.icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-base font-bold text-white leading-snug">{ev.title}</h3>
-                </div>
+          {/* Background Glow */}
+          <div className="absolute -top-20 -right-20 w-56 h-56 bg-indigo-500/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 w-56 h-56 bg-blue-500/10 rounded-full blur-3xl" />
 
-                <p className="text-xs text-slate-400 leading-relaxed mb-4">{ev.desc}</p>
-              </div>
+          <div className="relative z-10">
 
-              <div className="pt-3 border-t border-slate-800/80 flex items-center gap-2 text-[11px] text-slate-500 font-mono">
-                <MapPin className="w-3 h-3 text-emerald-400" />
-                <span>To Be Announced</span>
-              </div>
+            {/* Icon */}
+            <div className="mx-auto mb-6 w-16 h-16 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
+              <Sparkles className="w-8 h-8 text-indigo-400" />
             </div>
-          ))}
+
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+              Schedule <span className="gradient-text">To Be Announced</span>
+            </h3>
+
+            <p className="max-w-2xl mx-auto text-slate-400 text-sm sm:text-base leading-relaxed mb-8">
+              We are preparing an exciting and memorable Teachers’ Day celebration.
+              The detailed event schedule, activities, timings, and venue will be
+              announced soon.
+            </p>
+
+            {/* Details */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
+
+              {/* Date */}
+              <div className="rounded-2xl bg-slate-900/60 border border-slate-800 p-5">
+                <Clock className="w-5 h-5 text-indigo-400 mx-auto mb-3" />
+
+                <p className="text-xs text-slate-500 font-mono uppercase mb-1">
+                  Date
+                </p>
+
+                <p className="text-white font-semibold">
+                  3rd September 2026
+                </p>
+              </div>
+
+              {/* Venue */}
+              <div className="rounded-2xl bg-slate-900/60 border border-slate-800 p-5">
+                <MapPin className="w-5 h-5 text-emerald-400 mx-auto mb-3" />
+
+                <p className="text-xs text-slate-500 font-mono uppercase mb-1">
+                  Venue
+                </p>
+
+                <p className="text-white font-semibold">
+                  To Be Announced
+                </p>
+              </div>
+
+            </div>
+
+            {/* Bottom Notice */}
+            <div className="mt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono">
+              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+              Stay tuned for updates
+            </div>
+
+          </div>
         </div>
 
       </div>
