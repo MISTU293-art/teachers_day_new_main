@@ -62,11 +62,11 @@ export default function Hero() {
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-12 text-xs sm:text-sm font-mono text-slate-300">
             <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-md">
               <Calendar className="w-4 h-4 text-blue-400" />
-              <span>3rd September 2026 • 10:30 AM</span>
+              <span>3rd September 2026</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-md">
               <MapPin className="w-4 h-4 text-emerald-400" />
-              <span>CSE Main Auditorium (Hall 302)</span>
+              <span>Venue To Be Announced</span>
             </div>
           </div>
 
