@@ -7,57 +7,6 @@ export default function Gallery() {
   const [activeImage, setActiveImage] = useState(null);
   const [filterTag, setFilterTag] = useState('all');
 
-  const fallbackImages = [
-    {
-      _id: 'fb1',
-      title: 'Inauguration & Welcome Speech',
-      description: 'Department Head addressing students and faculty on Teachers\' Day.',
-      imageUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80',
-      tags: ['stage', 'inauguration', '2026'],
-      createdAt: '2026-08-20'
-    },
-    {
-      _id: 'fb2',
-      title: 'Faculty Felicitation Ceremony',
-      description: 'Presenting customized mementos to our respected engineering professors.',
-      imageUrl: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80',
-      tags: ['teachers', 'awards'],
-      createdAt: '2026-08-21'
-    },
-    {
-      _id: 'fb3',
-      title: 'Student Cultural Band Performance',
-      description: 'Musical tribute by CSE 3rd and 4th year band.',
-      imageUrl: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80',
-      tags: ['cultural', 'music'],
-      createdAt: '2026-08-22'
-    },
-    {
-      _id: 'fb4',
-      title: 'Celebration Cake Cutting & Cheers',
-      description: 'Sharing joyful moments and sweet memories with the entire department.',
-      imageUrl: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80',
-      tags: ['celebration', 'fun'],
-      createdAt: '2026-08-23'
-    },
-    {
-      _id: 'fb5',
-      title: 'Group Photo with All Professors',
-      description: 'A proud commemorative moment of the CSE Batch of 2026.',
-      imageUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80',
-      tags: ['teachers', 'group'],
-      createdAt: '2026-08-24'
-    },
-    {
-      _id: 'fb6',
-      title: 'Fun Tech Trivia & Quiz Round',
-      description: 'Informal coding jokes and memory sharing session.',
-      imageUrl: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80',
-      tags: ['fun', 'stage'],
-      createdAt: '2026-08-24'
-    }
-  ];
-
   const fetchGallery = async () => {
     setLoading(true);
     try {

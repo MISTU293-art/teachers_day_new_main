@@ -2,50 +2,6 @@ import React from 'react';
 import { Clock, MapPin, Sparkles, Coffee, Gift, Music2, Cake, Mic } from 'lucide-react';
 
 export default function Schedule() {
-  const events = [
-    {
-      time: '10:30 AM',
-      title: 'Grand Inauguration & Saraswati Vandana',
-      desc: 'Traditional lamp lighting by the Department Head & Respected Professors followed by invocation prayer.',
-      icon: Sparkles,
-      tag: 'Opening Ceremony'
-    },
-    {
-      time: '11:00 AM',
-      title: 'Faculty Welcome Address & Special Speeches',
-      desc: 'Words of wisdom and inspiring reflections from our esteemed faculty and student representatives.',
-      icon: Mic,
-      tag: 'Keynote'
-    },
-    {
-      time: '11:45 AM',
-      title: 'Student Cultural Gala (Dance, Skit & Music)',
-      desc: 'High-energy cultural performances, funny programming skits, solo singing, and band tributes by CSE students.',
-      icon: Music2,
-      tag: 'Cultural Performances'
-    },
-    {
-      time: '01:15 PM',
-      title: 'Faculty Felicitation & Memento Presentation',
-      desc: 'Honoring every teacher with personalized mementos, appreciation cards, and token of deep gratitude.',
-      icon: Gift,
-      tag: 'Honors'
-    },
-    {
-      time: '02:00 PM',
-      title: 'Celebration Cake Cutting Ceremony',
-      desc: 'Grand 3-tier Teachers\' Day cake cutting with the entire department faculty and students.',
-      icon: Cake,
-      tag: 'Celebration'
-    },
-    {
-      time: '02:30 PM',
-      title: 'High Tea & Interactive Fun Coding Quiz',
-      desc: 'Snacks, coffee, informal faculty-student trivia quiz, photo sessions, and open mic moments.',
-      icon: Coffee,
-      tag: 'Networking & Refreshments'
-    }
-  ];
 
   return (
     <section id="schedule" className="py-24 relative bg-[#060913]">
@@ -94,7 +50,7 @@ export default function Schedule() {
 
               <div className="pt-3 border-t border-slate-800/80 flex items-center gap-2 text-[11px] text-slate-500 font-mono">
                 <MapPin className="w-3 h-3 text-emerald-400" />
-                <span>Auditorium 302</span>
+                <span>To Be Announced</span>
               </div>
             </div>
           ))}

@@ -39,7 +39,7 @@ export default function About() {
             <span>HONORING EXCELLENCE</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-            Why We Celebrate On <span className="gradient-text">3rd September</span>
+            Why We Celebrate  <span className="gradient-text"></span>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
             In the fast-paced world of computer science, code syntax updates every season, but the wisdom, critical thinking, and perseverance instilled by our teachers stay with us for a lifetime.
