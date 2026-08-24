@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Image as ImageIcon, Sparkles, X, Maximize2, ExternalLink, RefreshCw } from 'lucide-react';
+import { Image as ImageIcon, X, Maximize2, ExternalLink, RefreshCw, UploadCloud, Sparkles } from 'lucide-react';
 
 export default function Gallery() {
   const [images, setImages] = useState([]);
@@ -10,20 +10,20 @@ export default function Gallery() {
   const fetchGallery = async () => {
     setLoading(true);
     try {
-      const res = await fetch('https://teachers-day-backend.onrender.com/api/gallery');
+      const res = await fetch('http://localhost:3000/api/gallery');
       if (res.ok) {
         const data = await res.json();
-        if (data.success && data.data && data.data.length > 0) {
+        if (data.success && Array.isArray(data.data)) {
           setImages(data.data);
         } else {
-          setImages(fallbackImages);
+          setImages([]);
         }
       } else {
-        setImages(fallbackImages);
+        setImages([]);
       }
     } catch (err) {
-      console.warn('Could not fetch from backend API, using curated gallery:', err);
-      setImages(fallbackImages);
+      console.warn('Gallery API note:', err.message);
+      setImages([]);
     } finally {
       setLoading(false);
     }
@@ -33,31 +33,33 @@ export default function Gallery() {
     fetchGallery();
   }, []);
 
+  const allTags = ['all', ...Array.from(new Set(images.flatMap(img => img.tags || [])))];
+
   const filteredImages = filterTag === 'all' 
     ? images 
     : images.filter(img => img.tags && img.tags.includes(filterTag));
 
   return (
-    <section id="gallery" className="py-24 relative bg-[#070b16]">
+    <section id="gallery" className="py-24 relative bg-[#060913]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-4">
               <ImageIcon className="w-3.5 h-3.5" />
-              <span>EVENT MEMORIES & MOMENTS</span>
+              <span>OFFICIAL EVENT GALLERY</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-2">
-              Celebration <span className="gradient-cyan">Gallery</span>
+              Event <span className="gradient-cyan">Memories</span>
             </h2>
             <p className="text-slate-400 text-sm sm:text-base max-w-xl">
-              High-resolution photo highlights uploaded from our admin portal via ImageKit.io CDN.
+              High-resolution photo highlights uploaded by department coordinators via ImageKit.io CDN.
             </p>
           </div>
 
-          {/* Tag filters & refresh */}
+          {/* Tag filters & refresh button */}
           <div className="flex items-center gap-2 flex-wrap">
-            {['all', 'teachers', 'stage', 'cultural', 'celebration'].map((tag) => (
+            {allTags.length > 1 && allTags.map((tag) => (
               <button
                 key={tag}
                 onClick={() => setFilterTag(tag)}
@@ -85,9 +87,9 @@ export default function Gallery() {
         {loading ? (
           <div className="text-center py-20">
             <div className="w-12 h-12 border-4 border-cyan-500/20 border-t-cyan-500 rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-slate-400 text-sm font-mono">Fetching photos from ImageKit CDN...</p>
+            <p className="text-slate-400 text-sm font-mono">Fetching images from ImageKit CDN...</p>
           </div>
-        ) : (
+        ) : filteredImages.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredImages.map((img) => (
               <div
@@ -98,7 +100,7 @@ export default function Gallery() {
                 <div className="relative h-64 overflow-hidden bg-slate-950">
                   <img
                     src={img.imageUrl}
-                    alt={img.title}
+                    alt={img.title || 'Event photo'}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
                   />
@@ -124,6 +126,24 @@ export default function Gallery() {
                 </div>
               </div>
             ))}
+          </div>
+        ) : (
+          <div className="glass-panel rounded-3xl p-12 text-center max-w-xl mx-auto border border-slate-800">
+            <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center mx-auto mb-4">
+              <ImageIcon className="w-7 h-7" />
+            </div>
+            <h3 className="text-lg font-bold text-white mb-2">No Photos Uploaded Yet</h3>
+            <p className="text-slate-400 text-xs sm:text-sm mb-6 leading-relaxed">
+              Official photos uploaded by department coordinators via ImageKit CDN will appear here.
+            </p>
+            <a
+              href="http://localhost:3000/gallery/upload"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold text-xs transition-colors"
+            >
+              <UploadCloud className="w-4 h-4" /> Upload Photos in Admin Portal
+            </a>
           </div>
         )}
 
@@ -155,7 +175,7 @@ export default function Gallery() {
               <div className="p-6 bg-slate-900 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <h3 className="text-lg font-bold text-white mb-1">{activeImage.title}</h3>
-                  <p className="text-xs text-slate-400">{activeImage.description || 'Teachers\' Day 2026 Memorial Moment'}</p>
+                  <p className="text-xs text-slate-400">{activeImage.description || 'CSE Department Event Photo'}</p>
                 </div>
                 <a
                   href={activeImage.imageUrl}
