@@ -44,7 +44,7 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 border border-blue-500/30 text-blue-400 text-xs sm:text-sm font-mono mb-6 backdrop-blur-md animate-float">
             <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping" />
             <Sparkles className="w-4 h-4 text-amber-400" />
-            <span>CSE Department Annual Gala • 3rd September 2026</span>
+            <span>CSE Department • 3rd September 2026</span>
           </div>
 
           {/* Main Title */}
