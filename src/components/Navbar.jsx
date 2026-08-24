@@ -87,7 +87,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-2">
             <a
-              href="http://localhost:3000/auth/login"
+              href="https://teachers-day-backend.onrender.com/auth/login"
               target="_blank"
               rel="noreferrer"
               className="p-2 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-300 text-xs"
