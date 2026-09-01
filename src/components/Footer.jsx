@@ -66,6 +66,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-slate-900/80 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-[11px] font-mono text-center sm:text-left">
             © 2026 Department of Computer Science &amp; Engineering. Built with <Heart className="w-3 h-3 text-rose-500 inline mx-0.5" /> by CSE Students.
+            <h2>Made By <a href="https://mistudebnath.vercel.app/" class="">Mistu Debnath</a></h2>
           </p>
 
           <button
